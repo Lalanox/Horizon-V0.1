@@ -1,0 +1,3 @@
+CREW = {
+    limitOfRanks = 10,
+}
