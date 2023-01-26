@@ -20,7 +20,6 @@ GestionCarMenu = function()
         menuOpen = true
         GetPlayerCar()
         while AllCars == nil do Wait(5) end
-        print(json.encode(AllCars))
         RageUI.Visible(MainMenuGestionCar, true)
         CreateThread(function()
             while menuOpen == true do

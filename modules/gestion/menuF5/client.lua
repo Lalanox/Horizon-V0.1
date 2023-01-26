@@ -310,7 +310,16 @@ local function menuPerso()
                                 
                             })
                             RageUI.Button('Bannir le joueur (à faire)', nil, {RightLabel = '→', Color = {BackgroundColor={236,74,74,200}}}, true, {
-                                
+                                onSelected = function()
+                                    local validBan = KeyboardInput("ADMIN_BAN", "Ete vous sur de vouloir bannir (oui/non) "..PlayerSelected.name, "", 20)
+                                    if validBan == 'oui' then
+                                        local reasonBan = KeyboardInput("ADMIN_BAN", "Entrée la raison du ban "..PlayerSelected.name, "", 20)
+                                        local timeBan = KeyboardInput("ADMIN_BAN", "Entrée la durée du bannissement  "..PlayerSelected.name, "", 20)
+                                        TriggerServerEvent('banSysteme:ban', PlayerSelected.source, reasonBan, timeBan)
+                                    else
+                                        ESX.ShowNotification('~r~Administration ~s~\nVous avez annulé le ban')
+                                    end
+                                end
                             })
                         end
                     end)
